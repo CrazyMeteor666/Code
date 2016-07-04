@@ -1,0 +1,32 @@
+package touchouwang;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver.Navigation;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class asdasd {
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "D:\\selenium\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		Navigation navigation=driver.navigate();
+		
+		navigation.to("https://www.touchouwang.net/product/detail/26");
+		WebElement newbody_login=driver.findElement(By.xpath("//*[@id='needLogin']"));
+		newbody_login.click();
+		Thread.sleep(3000);
+		WebElement username2=driver.findElement(By.xpath("//*[@id='telphone']"));
+		username2.sendKeys("13911111111");
+		WebElement password2=driver.findElement(By.xpath("//*[@id='password']"));
+		password2.sendKeys("123qwe");
+		WebElement loginbutton=driver.findElement(By.xpath("//*[@id='fasong']"));
+		loginbutton.click();
+		Thread.sleep(3000);
+		System.out.println("获取账户余额："+driver.findElement(By.xpath("//*[@id='newbody-user-balance']/p")).getText());
+		System.out.println("是否不能购买："+driver.findElement(By.xpath("//*[@id='btnInvest']")).getText().contains("已完结"));
+		driver.findElement(By.xpath("//*[@id='header']/div[1]/div/div[3]/a")).click();
+		driver.findElement(By.xpath("//*[@id='js_sure_button']")).click();
+	}
+}

@@ -1,0 +1,66 @@
+package touchouwang;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver.Navigation;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class testLogin {
+	public static void main(String[] args) throws InterruptedException{
+		System.setProperty("webdriver.chrome.driver", "D:\\selenium\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		Navigation navigation=driver.navigate();
+		navigation.to("https://www.touchouwang.net/");
+		//检查是否打开首页
+		System.out.println("检查是否打开首页(https://www.touchouwang.net/):"+"https://www.touchouwang.net/".equals(driver.getCurrentUrl()));
+		//检查页面title
+		System.out.println("检查页面title是否正确(投筹网官网--投筹网,房产融资平台)："+"投筹网官网--投筹网,房产融资平台".equals(driver.getTitle()));
+		WebElement loginButton=driver.findElement(By.xpath("//*[@id='header']/div/div[2]/a[1]"));
+		loginButton.click();
+		Thread.sleep(3000);
+		//检查是否跳转到登录页
+		System.out.println("检查是否跳转到登录页："+"https://www.touchouwang.net/account/index/login".equals(driver.getCurrentUrl()));
+		//检查登录页元素
+		System.out.println("检查页面title："+"投筹网官网--登录注册-投筹网".equals(driver.getTitle()));
+		
+		
+		//case1：不输入帐号密码直接登录
+		WebElement login=driver.findElement(By.xpath("//*[@id='fasong']"));
+		login.click();
+		WebElement qrCode=driver.findElement(By.xpath("/html/body/div[3]/div/div[2]/p[2]/img"));
+		qrCode.click();
+		Thread.sleep(1000);
+		//检查红字提示
+		System.out.println("\n");
+		System.out.println("case1：不输入帐号密码直接登录");
+		System.out.println("检查未输入帐号红字提示是否出现："+driver.findElement(By.xpath("//*[@id='telerror']")).getText().contains("用户名不能为空"));
+		
+		
+		//case2：只输入帐号不输入密码登录
+		driver.findElement(By.id("telphone")).sendKeys("13911111111");
+		login.click();
+		qrCode.click();
+		Thread.sleep(1000);
+		System.out.println("\n");
+		System.out.println("case2：只输入帐号不输入密码");
+		System.out.println("检查未输入帐号红字提示不出现："+driver.findElement(By.xpath("//*[@id='telerror']")).getText().contains("用户名不能为空"));
+		System.out.println("检查未输入密码红字是否出现："+driver.findElement(By.xpath("//*[@id='passworderror']")).getText().contains("请输入密码"));
+		driver.findElement(By.id("telphone")).clear();
+		
+		
+		//case3：输入错误格式的帐号
+		driver.findElement(By.id("telphone")).sendKeys("139111");
+		login.click();
+		qrCode.click();
+		Thread.sleep(1000);
+		System.out.println("\n");
+		System.out.println("case3：只输入帐号不输入密码");
+		System.out.println("检查未输入帐号红字提示不出现："+driver.findElement(By.xpath("//*[@id='telerror']")).getText().contains("用户名不能为空"));
+		System.out.println("检查帐号格式错误红字提示不出现："+driver.findElement(By.xpath("//*[@id='telerror']")).getText().contains("手机号码错误"));
+		System.out.println("检查未输入密码红字是否出现："+driver.findElement(By.xpath("//*[@id='passworderror']")).getText().contains("请输入1密码"));
+		
+		driver.close();
+	}
+}
