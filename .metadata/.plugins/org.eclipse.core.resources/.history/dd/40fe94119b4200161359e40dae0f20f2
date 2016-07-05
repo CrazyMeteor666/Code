@@ -37,12 +37,13 @@ public class testPCHomePage {
 		
 		
 		// case2:banner点击跳转（先实现点击单个banner跳转，全banner验证待实现）
+		/*
 		WebElement banner=driver.findElement(By.xpath("//*[@id='scrollbanner']/div[1]/div[1]/a"));
 		String banner_url = banner.getAttribute("href");
 		banner.click();
 		Thread.sleep(3000);
 		System.out.println("检查banner跳转是否正确："+banner_url.equals(driver.getCurrentUrl()));
-		
+		*/
 		
 		// case3:列表项目状态一致性
 		
