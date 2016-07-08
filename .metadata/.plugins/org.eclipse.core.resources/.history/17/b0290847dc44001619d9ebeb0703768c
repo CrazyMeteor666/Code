@@ -39,7 +39,9 @@ public class testPCHomePage {
 			String xpath2=i+"";
 			String xpath3="]/div[1]/a/img";
 			String newxpath=xpath1+xpath2+xpath3;
+			System.out.println(newxpath);
 			String list_pic1=driver.findElement(By.xpath(newxpath)).getAttribute("src");
+			System.out.println("123");
 			URL list_pic1_url=new URL(list_pic1);
 			try {
 				HttpURLConnection uConnection2=(HttpURLConnection) list_pic1_url.openConnection();
