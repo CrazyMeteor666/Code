@@ -21,9 +21,11 @@ public class writetofiles {
 				e.printStackTrace();
 			}
 		}
-		FileWriter writer=new FileWriter(file);
-		writer.write("123123");
+		FileWriter writer=new FileWriter(file,true);
+		writer.write("123123\r\n");
+		writer.write("123123\r\n");
 		writer.flush();   //这行才是真正的输出到文件，别忘了
+		writer.close();
 		System.out.println("done");
 	}
 }
