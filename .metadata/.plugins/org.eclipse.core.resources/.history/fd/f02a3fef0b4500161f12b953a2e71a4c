@@ -1,8 +1,0 @@
-package costom;
-
-import java.io.File;
-
-public class writetofiles2 {
-	File file=new File("d:/GitHub/test.txt");
-	
-}
