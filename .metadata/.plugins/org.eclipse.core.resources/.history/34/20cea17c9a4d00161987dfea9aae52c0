@@ -77,6 +77,6 @@ public class testPCCategory {
 		log.flush(); 
 		log.close();
 		driver.close();
-		System.out.println("testPCCategory done");
+		System.out.println("done");
 	}
 }
