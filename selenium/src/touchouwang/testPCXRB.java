@@ -90,5 +90,6 @@ public class testPCXRB {
 		
 		//case3：新人宝详情页手动输入金额
 		log.write(time.format(new Date())+"   case3：新人宝详情页手动输入金额\r\n");
+		driver.findElement(By.xpath("//*[@id='txtQty']")).sendKeys("2000");
 	}
 }
