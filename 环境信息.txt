@@ -1,0 +1,78 @@
+测试环境的服务器：10.10.16.227    root/Xiaoniu@2015
+基础平台服务器：10.10.16.169   root/Xiaoniu@2015
+
+投筹测试环境数据库：10.10.16.227:3306          root/root_123456
+基础平台数据库： 10.10.16.169:3306   root/root123
+
+预发布地址：10.16.0.85 
+
+删除测试环境用户信息
+DELETE FROM uniuser.customer_source WHERE MEMBER_NO='ba5b9a01-4d23-48e2-aae5-f6198d91b0e7';
+DELETE FROM uniuser.login_log WHERE  MEMBER_NO='ba5b9a01-4d23-48e2-aae5-f6198d91b0e7';
+DELETE FROM uniuser.customer_device WHERE MEMBER_NO='ba5b9a01-4d23-48e2-aae5-f6198d91b0e7';
+DELETE FROM uniuser.customer_bind WHERE MEMBER_NO='ba5b9a01-4d23-48e2-aae5-f6198d91b0e7';
+
+DELETE FROM uniuser.customer_info WHERE MOBILE='18911111111'; 
+DELETE FROM payment.t_partner_user WHERE user_phone_no='18911111111';
+DELETE FROM payment.t_payment WHERE buyer_mobile='18911111111';
+DELETE FROM payment.t_user_card WHERE user_phone_no='18911111111'; 
+
+
+前端日志路径
+/data/test_env/devlepe/application/logs/interface
+
+启动selenium服务器
+java -jar D:\selenium\selenium-server-standalone-2.53.0.jar
+
+转让条件：
+FROM `invest_contract` b 
+ INNER JOIN `product` a ON a.product_id=b.product_id  AND a.if_transfer=1 AND a.status=7   
+ WHERE b.user_id="ebd0edc5-f336-4139-a25b-17cd2a488ac8"  AND b.`status`=1 AND b.transfer_time<NOW() AND b.product_unit-b.lock_unit>0 GROUP BY b.product_id   
+
+
+派息条件：
+SELECT product_id, `name`, ann_return, end_time FROM product WHERE `status`=7 AND return_type=2 AND start_time<NOW()
+
+
+充值：
+/data/lingcong/data/sysrecharge
+./sysrc.sh
+
+检查服务是否全部启动：
+[test@CENTOS227 ~/run/crowd/tools]$./check_all.sh
+
+
+
+-- 首次投资得红包，未得红包检查原因
+-- 1、检查活动
+SELECT *
+FROM `crowd_activity_test`.`activity_info` a 
+LEFT JOIN `crowd_activity`.`activity_rule` b ON a.activity_rule_id=b.activity_rule_id 
+WHERE a.status=2 AND a.start_time<NOW() AND a.end_time>NOW() AND b.type=20;
+
+-- 2、检查是否已经领取过奖励：填写手机号
+SELECT *
+FROM `crowd_activity_test`.`activity_award_user2` a
+WHERE a.activity_id=20 AND a.wx_openid='15818602501';
+
+-- 3、检查是否重复投资
+-- 成功的投资：填写user_id
+SELECT COUNT(*) FROM `crowd_test`.`invest_contract` WHERE user_id='e9cb082d-05ca-46a5-ae00-1b875cbb8c87' AND `status`=1;
+-- 新人宝当天投资：填写user_id、product_id
+SELECT COUNT(*) FROM `crowd_test`.`product_order` WHERE user_id='e9cb082d-05ca-46a5-ae00-1b875cbb8c87' AND product_id=100 AND `status`=2
+
+
+预发布日志（跳板机）：
+/data/logs/httpd/www.touchouwang.net-access_log 
+
+管理端trunk：
+sys_admin
+
+
+新增短信，数据库169的mess_db
+模块表：t_sms_module_info
+短信模板表：t_message_template
+两个表的module_id必须是对应的
+
+
+txtQty.value

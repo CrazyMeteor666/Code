@@ -54,7 +54,6 @@ public class testPCCategory {
 				log.write(time.format(new Date())+"   项目列表第"+i+"张图片加载失败\r\n");
 			}
 		}
-		log.write("\r\n");
 		
 		//case2：项目列表跳转
 		log.write(time.format(new Date())+"   case2：项目列表跳转\r\n");
