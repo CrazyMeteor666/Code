@@ -91,8 +91,18 @@ public class testPCHomePage {
 			String xpath5=m+"";
 			String xpath6="]/div[1]/a/img";
 			String newxpath2=xpath4+xpath5+xpath6;
+			String product_name=driver.findElement(By.xpath(newxpath2)).getText();
 			driver.findElement(By.xpath(newxpath2)).click();
 			Thread.sleep(3000);
+			if (driver.getTitle().equals("投筹网官网--"+product_name)==true) {
+				log.write(time.format(new Date())+"   首页列表第"+m+"个项目跳转成功\r\n");
+				navigation.back();
+				Thread.sleep(3000);
+			} else {
+				log.write(time.format(new Date())+"   首页列表第"+m+"个项目跳转失败\r\n");
+				navigation.back();
+				Thread.sleep(3000);
+			}
 			navigation.back();
 		}
 		

@@ -36,7 +36,7 @@ public class testPCCategory {
 		
 		log.write("------------------------------------------------------------------------------\r\n");
 		log.write("\r\n\r\n\r\n");
-		log.write("项目列表");
+		log.write("项目列表\r\n");
 		
 		//case1：项目列表图片加载
 		log.write(time.format(new Date())+"   case1：项目列表图片加载\r\n");
@@ -65,10 +65,14 @@ public class testPCCategory {
 			String product_name=driver.findElement(By.xpath(newxpath)).getText();
 			driver.findElement(By.xpath(newxpath)).click();
 			Thread.sleep(3000);
-			if (driver.getTitle()=="投筹网官网--"+product_name) {
+			if (driver.getTitle().equals("投筹网官网--"+product_name)==true) {
 				log.write(time.format(new Date())+"   项目列表第"+i+"个项目跳转成功\r\n");
+				navigation.back();
+				Thread.sleep(3000);
 			} else {
 				log.write(time.format(new Date())+"   项目列表第"+i+"个项目跳转失败\r\n");
+				navigation.back();
+				Thread.sleep(3000);
 			}
 		}
 		
