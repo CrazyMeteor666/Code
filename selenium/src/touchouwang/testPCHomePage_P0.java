@@ -38,8 +38,8 @@ public class testPCHomePage_P0 {
 		log.write("\r\n\r\n\r\n");
 		log.write("首页\r\n");
 
-		// case1:banner、列表图片加载
-		log.write("case1:banner、列表图片加载\r\n");
+		// case1：banner、列表图片加载
+		log.write("case1：banner、列表图片加载\r\n");
 		String banner_pic=driver.findElement(By.xpath("//*[@id='scrollbanner']/div[1]/div[1]/a/img")).getAttribute("src");
 		URL banner_pic_url=new URL(banner_pic);
 		try {
@@ -48,7 +48,7 @@ public class testPCHomePage_P0 {
 				log.write(time.format(new Date())+"   首页banner加载成功！\r\n");
 			}
 			else {
-				log.write(time.format(new Date())+"   首页banner加载失败！\r\n");
+				log.write("报错：首页banner加载失败！\r\n");
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -66,7 +66,7 @@ public class testPCHomePage_P0 {
 				if (uConnection2.getResponseCode()==200) {
 					log.write(time.format(new Date())+"   首页项目列表第"+i+"张图加载成功\r\n");
 				} else {
-					log.write(time.format(new Date())+"   首页项目列表第"+i+"张图加载失败\r\n");
+					log.write("报错：首页项目列表第"+i+"张图加载失败\r\n");
 				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -75,13 +75,17 @@ public class testPCHomePage_P0 {
 		}
 		
 		
-		// case2:banner点击跳转（先实现点击单个banner跳转，全banner验证待实现）
-		log.write("case2:banner点击跳转（先实现点击单个banner跳转，全banner验证待实现）\r\n");
+		// case2：banner点击跳转（先实现点击单个banner跳转，全banner验证待实现）
+		log.write("case2：banner点击跳转（先实现点击单个banner跳转，全banner验证待实现）\r\n");
 		WebElement banner=driver.findElement(By.xpath("//*[@id='scrollbanner']/div[1]/div[1]/a"));
 		String banner_url = banner.getAttribute("href");
 		banner.click();
 		Thread.sleep(3000);
-		log.write(time.format(new Date())+"   检查banner跳转是否正确："+banner_url.equals(driver.getCurrentUrl())+"\r\n");
+		if (banner_url.equals(driver.getCurrentUrl())==true) {
+			log.write(time.format(new Date())+"   首页banner跳转正确\r\n");
+		} else {
+			log.write("报错：首页banner跳转错误\r\n");
+		}
 		navigation.back();
 		
 		
@@ -100,7 +104,7 @@ public class testPCHomePage_P0 {
 				navigation.back();
 				Thread.sleep(3000);
 			} else {
-				log.write(time.format(new Date())+"   首页列表第"+m+"个项目跳转失败\r\n");
+				log.write("报错：首页列表第"+m+"个项目跳转失败\r\n");
 				navigation.back();
 				Thread.sleep(3000);
 			}

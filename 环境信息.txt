@@ -76,3 +76,10 @@ sys_admin
 
 
 txtQty.value
+
+github强制同步代码：
+git reset --hard
+git pull
+
+结束进程：
+taskkill /im chromedriver.exe

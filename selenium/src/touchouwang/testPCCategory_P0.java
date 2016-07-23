@@ -39,7 +39,7 @@ public class testPCCategory_P0 {
 		log.write("项目列表\r\n");
 		
 		//case1：项目列表图片加载
-		log.write(time.format(new Date())+"   case1：项目列表图片加载\r\n");
+		log.write("case1：项目列表图片加载\r\n");
 		for (int i = 1; i <7; i++) {
 			String xpath1="//*[@id='programlist']/div[";
 			String xpath2=""+i;
@@ -51,7 +51,7 @@ public class testPCCategory_P0 {
 			if (uConnection2.getResponseCode()==200) {
 				log.write(time.format(new Date())+"   项目列表第"+i+"张图片加载成功\r\n");
 			} else {
-				log.write(time.format(new Date())+"   项目列表第"+i+"张图片加载失败\r\n");
+				log.write("报错：项目列表第"+i+"张图片加载失败\r\n");
 			}
 		}
 		log.write("\r\n");
@@ -71,7 +71,7 @@ public class testPCCategory_P0 {
 				navigation.back();
 				Thread.sleep(3000);
 			} else {
-				log.write(time.format(new Date())+"   项目列表第"+i+"个项目跳转失败\r\n");
+				log.write("报错：项目列表第"+i+"个项目跳转失败\r\n");
 				navigation.back();
 				Thread.sleep(3000);
 			}

@@ -38,7 +38,7 @@ public class testPCLogin_P1 {
 		log.write("登录逻辑\r\n");
 
 		// case1:首页登录
-		log.write(time.format(new Date())+"   case1:首页登录\r\n");
+		log.write("case1:首页登录\r\n");
 		log.write(time.format(new Date())+"   检查是否打开首页(https://test.touchouwang.net/):"+"http://test.touchouwang.net/".equals(driver.getCurrentUrl())+"\r\n");
 		log.write(time.format(new Date())+"   检查页面title是否正确(投筹网官网--投筹网,房产融资平台)："+"投筹网官网--投筹网,房产融资平台".equals(driver.getTitle())+"\r\n");
 		WebElement homepage_login=driver.findElement(By.xpath("//*[@id='header']/div/div[2]/a[1]"));
@@ -62,7 +62,7 @@ public class testPCLogin_P1 {
 		log.write("\r\n");
 
 		// case2:新人宝详情页登录
-		log.write(time.format(new Date())+"   case2:新人宝详情页登录"+"\r\n");
+		log.write("case2:新人宝详情页登录"+"\r\n");
 		navigation.to("http://test.touchouwang.net/product/detail/278");
 		WebElement newbody_login=driver.findElement(By.xpath("//*[@id='needLogin']"));
 		newbody_login.click();
@@ -81,7 +81,7 @@ public class testPCLogin_P1 {
 		log.write("\r\n");
 
 		// case3:乐商宝详情页登录
-		log.write(time.format(new Date())+"   case3:乐商宝详情页登录"+"\r\n");
+		log.write("case3:乐商宝详情页登录"+"\r\n");
 		navigation.to("http://test.touchouwang.net/product/detail/276");
 		WebElement lsb_login=driver.findElement(By.xpath("//*[@id='buy_form']/div[1]/p/a"));
 		lsb_login.click();
