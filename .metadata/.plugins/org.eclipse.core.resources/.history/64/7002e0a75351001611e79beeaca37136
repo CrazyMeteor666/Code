@@ -169,16 +169,16 @@ public class testPCXRB_P1 {
 		
 		log.write("\r\n");
 		//case4：投资过用户无法购买新人宝
-		log.write("case4：投资过用户无法购买新人宝\r\n");
+		log.write("case4：投资过用户无法购买新人宝");
 		driver.findElement(By.xpath("//*[@id='header']/div[1]/div/div[3]/a")).click();
 		Thread.sleep(500);
 		driver.findElement(By.xpath("//*[@id='js_sure_button']")).click();
 		Thread.sleep(500);
-		driver.findElement(By.xpath("//*[@id='header']/div[2]/div[2]/a[1]")).click();
+		driver.findElement(By.xpath("//*[@id='header']/div[2]/div[2]/a[1]]")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//*[@id='telphone']")).sendKeys("13911111111");
-		driver.findElement(By.xpath("//*[@id='password']")).sendKeys("123qwe");
-		driver.findElement(By.xpath("//*[@id='fasong']")).click();
+		username2.sendKeys("13911111111");
+		password2.sendKeys("123qwe");
+		loginbutton2.click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[@id='buy_form']/span/a[1]")).click();
 		Thread.sleep(500);
@@ -187,9 +187,9 @@ public class testPCXRB_P1 {
 		driver.findElement(By.xpath("//*[@id='btnInvest']"));
 		Thread.sleep(500);
 		if (driver.getCurrentUrl().equals("投筹网官网--购买-投筹网")==false) {
-			log.write(time.format(new Date())+"   已投资用户无法购买新人宝\r\n");
+			log.write(time.format(new Date())+"   已投资用户无法购买新人宝");
 		} else {
-			log.write("报错：已投资用户可以购买新人宝\r\n");
+			log.write("报错：已投资用户可以购买新人宝");
 		}
 		
 		
