@@ -7081,3 +7081,66 @@ org.eclipse.core.runtime.CoreException: Could not write file: D:\GitHub\Code\sel
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 !SUBENTRY 1 org.eclipse.core.filesystem 4 272 2016-07-24 11:49:46.330
 !MESSAGE Could not write file: D:\GitHub\Code\selenium\bin\touchouwang.
+!SESSION 2016-07-26 16:22:00.744 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_101
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-26 16:22:15.037
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\suxin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.recommenders.types.rcp 1 4 2016-07-26 16:33:52.433
+!MESSAGE Full project indexing required:
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\charsets.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\access-bridge-64.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\cldrdata.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\dnsns.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\jaccess.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\jfxrt.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\localedata.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\nashorn.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\sunec.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\sunjce_provider.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\sunmscapi.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\sunpkcs11.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\ext\zipfs.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\jce.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\jfr.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\jsse.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\resources.jar
+  [+] C:\Program Files\Java\jre1.8.0_101\lib\rt.jar
+  [-] C:\Program Files\Java\jre1.8.0_92\lib\ext\localedata.jar
+  [-] C:\Program Files\Java\jre1.8.0_92\lib\ext\jfxrt.jar
+  [-] C:\Program Files\Java\jre1.8.0_92\lib\ext\sunpkcs11.jar
+  [-] C:\Program Files\Java\jre1.8.0_92\lib\ext\zipfs.jar
+  [-] C:\Program Files\Java\jre1.8.0_92\lib\rt.jar
+  [-] C:\Program Files\Java\jre1.8.0_92\lib\resources.jar
+  [-] C:\Program Files\Java\jre1.8.0_92\lib\ext\nashorn.jar
+  [-] C:\Program Files\Java\jre1.8.0_92\lib\jsse.jar
+  [-] C:\Program Files\Java\jre1.8.0_92\lib\jfr.jar
+  [-] C:\Program Files\Java\jre1.8.0_92\lib\jce.jar
+  [-] C:\Program Files\Java\jre1.8.0_92\lib\ext\sunec.jar
+  [-] C:\Program Files\Java\jre1.8.0_92\lib\charsets.jar
+  [-] C:\Program Files\Java\jre1.8.0_92\lib\ext\dnsns.jar
+  [-] C:\Program Files\Java\jre1.8.0_92\lib\ext\sunmscapi.jar
+  [-] C:\Program Files\Java\jre1.8.0_92\lib\ext\cldrdata.jar
+  [-] C:\Program Files\Java\jre1.8.0_92\lib\ext\access-bridge-64.jar
+  [-] C:\Program Files\Java\jre1.8.0_92\lib\ext\sunjce_provider.jar
+  [-] C:\Program Files\Java\jre1.8.0_92\lib\ext\jaccess.jar
+
+!STACK 0
+org.eclipse.recommenders.utils.Logs$LogTraceException
+	at org.eclipse.recommenders.utils.Logs$LogTraceException.newTrace(Logs.java:381)
+	at org.eclipse.recommenders.utils.Logs.log(Logs.java:134)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.needsRebuild(ProjectTypesIndex.java:167)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.startUp(ProjectTypesIndex.java:122)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
