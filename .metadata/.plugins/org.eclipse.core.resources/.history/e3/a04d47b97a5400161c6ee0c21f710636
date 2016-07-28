@@ -36,7 +36,7 @@ public class testPCWYB_P1 {
 		
 		log.write("------------------------------------------------------------------------------\r\n");
 		log.write("\r\n\r\n\r\n");
-		log.write("稳盈宝详情页\r\n");
+		log.write("乐商宝详情页\r\n");
 		
 		driver.findElement(By.xpath("//*[@id='header']/div[2]/div[2]/a[1]")).click();
 		Thread.sleep(3000);
@@ -105,7 +105,7 @@ public class testPCWYB_P1 {
 		
 		log.write("\r\n");
 		//case3：手动输入金额
-		log.write("case3：手动输入金额\r\n");
+		log.write("case3：手动输入金额");
 		driver.findElement(By.xpath("//*[@id='txtQty']")).clear();
 		driver.findElement(By.xpath("//*[@id='txtQty']")).sendKeys("100");
 		driver.findElement(By.xpath("//*[@id='newbody-options']/div[4]")).click();

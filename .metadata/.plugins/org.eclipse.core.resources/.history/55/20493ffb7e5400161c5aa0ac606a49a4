@@ -36,7 +36,7 @@ public class testPCWYB_P1 {
 		
 		log.write("------------------------------------------------------------------------------\r\n");
 		log.write("\r\n\r\n\r\n");
-		log.write("稳盈宝详情页\r\n");
+		log.write("乐商宝详情页\r\n");
 		
 		driver.findElement(By.xpath("//*[@id='header']/div[2]/div[2]/a[1]")).click();
 		Thread.sleep(3000);

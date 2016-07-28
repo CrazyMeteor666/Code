@@ -36,7 +36,7 @@ public class testPCWYB_P1 {
 		
 		log.write("------------------------------------------------------------------------------\r\n");
 		log.write("\r\n\r\n\r\n");
-		log.write("稳盈宝详情页\r\n");
+		log.write("乐商宝详情页\r\n");
 		
 		driver.findElement(By.xpath("//*[@id='header']/div[2]/div[2]/a[1]")).click();
 		Thread.sleep(3000);
@@ -69,7 +69,7 @@ public class testPCWYB_P1 {
 		}
 		
 		log.write("\r\n");
-		//case2：减号超过限制
+		//case2：加减号超过限制
 		driver.findElement(By.xpath("//*[@id='txtQty']")).clear();
 		log.write("case2：减号超过限制\r\n");
 		for (int i = 0; i < 11; i++) {
@@ -78,14 +78,14 @@ public class testPCWYB_P1 {
 		}
 		driver.findElement(By.xpath("//*[@id='btnInvest']")).click();
 		Thread.sleep(1000);
-		if (driver.getTitle().equals("投筹网官网--购买-投筹网")==true) {
+		if (driver.getCurrentUrl().equals("投筹网官网--购买-投筹网")==true) {
 			log.write(time.format(new Date())+"   稳盈宝超过1w可以购买\r\n");
 			navigation.back();
 		} else {
 			log.write("报错：稳盈宝宝投资金额超过1w不能购买");
 		}
 		for (int i = 0; i < 20; i++) {
-			driver.findElement(By.xpath("//*[@id='buy_form']/span/a[1]")).click();
+			jian.click();
 			Thread.sleep(100);
 		}
 		if (driver.findElement(By.xpath("//*[@id='txtQty']")).getAttribute("value").equals("1000.00")==true) {
@@ -105,7 +105,8 @@ public class testPCWYB_P1 {
 		
 		log.write("\r\n");
 		//case3：手动输入金额
-		log.write("case3：手动输入金额\r\n");
+		log.write("case3：手动输入金额");
+		log.write("case3：新人宝详情页手动输入金额\r\n");
 		driver.findElement(By.xpath("//*[@id='txtQty']")).clear();
 		driver.findElement(By.xpath("//*[@id='txtQty']")).sendKeys("100");
 		driver.findElement(By.xpath("//*[@id='newbody-options']/div[4]")).click();
