@@ -57,7 +57,7 @@ public class testPCCategory_P0 {
 		log.write("\r\n");
 		
 		//case2：项目列表跳转
-		log.write("case2：项目列表跳转\r\n");
+		log.write(time.format(new Date())+"   case2：项目列表跳转\r\n");
 		for (int i = 1; i < 7; i++) {
 			String xpath1="//*[@id='programlist']/div[";
 			String xpath2=""+i;

@@ -88,7 +88,7 @@ public class testPCHomePage_P0 {
 		}
 		navigation.back();
 		
-		log.write("\r\n");
+		
 		// case3:项目点击可跳转
 		log.write("case3:项目点击可跳转\r\n");
 		for (int m = 1; m < 4; m++) {
