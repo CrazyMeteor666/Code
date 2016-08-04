@@ -68,6 +68,12 @@ SELECT COUNT(*) FROM `crowd_test`.`product_order` WHERE user_id='e9cb082d-05ca-4
 管理端trunk：
 sys_admin
 
+nginx目录：
+/usr/local/nginx/conf
+
+svc.xml:
+/home/test/run/crowd/etc
+
 
 新增短信，数据库169的mess_db
 模块表：t_sms_module_info
@@ -83,3 +89,7 @@ git pull
 
 结束进程：
 taskkill /im chromedriver.exe
+
+吉办网微信openid映射：
+$config["openid_list"] = '{"ojYqbwQPxYNppiETCAeVaBh_BWa8":"o8FalxAf4zCuUK6x29LawVIKcZlw"}';
+                                    测试                             正式
