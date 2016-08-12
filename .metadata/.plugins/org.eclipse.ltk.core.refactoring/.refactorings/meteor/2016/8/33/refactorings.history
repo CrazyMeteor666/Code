@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;costom.IsElementPresent.java&apos; to &apos;IsElementPresent11.java&apos;&#x0D;&#x0A;- Original project: &apos;meteor&apos;&#x0D;&#x0A;- Original element: &apos;costom.IsElementPresent.java&apos;&#x0D;&#x0A;- Renamed element: &apos;costom.IsElementPresent11.java&apos;" description="Rename compilation unit &apos;IsElementPresent.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;costom{IsElementPresent.java" name="IsElementPresent11.java" references="false" stamp="1470997279588" version="1.0"/>
+</session>
