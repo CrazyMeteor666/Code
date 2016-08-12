@@ -1,8 +1,15 @@
-测试环境的服务器：10.10.16.227    root/Xiaoniu@2015
+猎聘网  （新）小牛网络/fgkg080808
+前程无忧   （新）前海小牛 xnkj123 fgkg080808
+智联招聘   （新）v27229298/xnkj6666
+
+测试环境的服务器：10.10.16.227    root/Xiaoniu@2015   test/123456
 基础平台服务器：10.10.16.169   root/Xiaoniu@2015
 
 投筹测试环境数据库：10.10.16.227:3306          root/root_123456
 基础平台数据库： 10.10.16.169:3306   root/root123
+
+复制数据表：
+create table tabA_bak as select * from tabA
 
 预发布地址：10.16.0.85 
 
@@ -93,3 +100,14 @@ taskkill /im chromedriver.exe
 吉办网微信openid映射：
 $config["openid_list"] = '{"ojYqbwQPxYNppiETCAeVaBh_BWa8":"o8FalxAf4zCuUK6x29LawVIKcZlw"}';
                                     测试                             正式
+$config["openid_list"] = '{"ojYqbwQPxYNppiETCAeVaBh_BWa8":"o8FalxAf4zCuUK6x29LawVIKcZlw"}';
+
+吉办网生成账单：
+写字楼：http://test.geeoffice.com/bill/send_template
+公寓：http://test.geeoffice.com/bill/send_flat_template
+
+吉办网刷新微信token：
+http://test.geeoffice.com/oauth/reflash_wx_token?user=123456789
+
+线上环境日志：
+/data/logs/app/zc/debug

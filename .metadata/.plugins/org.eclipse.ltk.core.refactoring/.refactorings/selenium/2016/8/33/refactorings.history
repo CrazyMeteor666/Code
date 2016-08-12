@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;touchouwang.testPCPersonCenter&apos; to &apos;testPCPersonCenter_P0&apos;&#x0D;&#x0A;- Original project: &apos;selenium&apos;&#x0D;&#x0A;- Original element: &apos;touchouwang.testPCPersonCenter&apos;&#x0D;&#x0A;- Renamed element: &apos;touchouwang.testPCPersonCenter_P0&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;testPCPersonCenter&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;touchouwang{testPCPersonCenter.java[testPCPersonCenter" matchStrategy="1" name="testPCPersonCenter_P0" qualified="false" references="true" similarDeclarations="false" stamp="1470906323393" textual="false" version="1.0"/>
+</session>
