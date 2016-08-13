@@ -95,7 +95,7 @@ git reset --hard
 git pull
 
 结束进程：
-taskkill /im chromedriver.exe
+taskkill /im chromedriver.exe /f
 
 吉办网微信openid映射：
 $config["openid_list"] = '{"ojYqbwQPxYNppiETCAeVaBh_BWa8":"o8FalxAf4zCuUK6x29LawVIKcZlw"}';
