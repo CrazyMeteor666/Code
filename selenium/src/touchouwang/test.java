@@ -1,0 +1,48 @@
+package touchouwang;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver.Navigation;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class test {
+	public static void main(String[] args) throws IOException {
+		//第一段代码
+		System.setProperty("webdriver.chrome.driver", "D:\\selenium\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		Navigation navigation=driver.navigate();
+		navigation.to("http://www.baidu.com/");
+		
+		File file=new File("D:\\testlog.txt");
+		if (!file.exists()) {
+			try {
+				file.createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		FileWriter log=new FileWriter(file,true);
+		
+		SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		
+		/*
+		 * 
+		 * 
+		 * 脚本主体
+		 * 
+		 * 
+		 * */
+		
+		
+		//第二段代码
+		log.flush(); 
+		log.close();
+		driver.close();
+	}
+}

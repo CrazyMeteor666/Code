@@ -1,0 +1,12 @@
+package touchouwang;
+
+import java.io.IOException;
+
+import org.apache.commons.logging.Log;
+
+public class test {
+	public static void main(String[] args) throws IOException {
+		costom.setup();
+		costom.teardown();
+	}
+}

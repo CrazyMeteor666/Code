@@ -1,0 +1,11 @@
+package costom;
+
+public class TearDown {
+	public static void main(String[] args) extends SetUp{
+		log.write("\r\n\r\n\r\n");
+		log.write("------------------------------------------------------------------------------\r\n");
+		log.flush(); 
+		log.close();
+		driver.close();
+	}
+}

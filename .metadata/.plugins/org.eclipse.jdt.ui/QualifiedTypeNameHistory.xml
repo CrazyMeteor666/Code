@@ -40,7 +40,6 @@
 <fullyQualifiedTypeName name="com.thoughtworks.selenium.webdriven.commands.GetText"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.sql.Driver"/>
-<fullyQualifiedTypeName name="org.omg.CORBA.PUBLIC_MEMBER"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.chrome.ChromeDriver"/>
 <fullyQualifiedTypeName name="com.google.common.collect.ForwardingNavigableMap"/>
 <fullyQualifiedTypeName name="com.thoughtworks.selenium.Selenium"/>
@@ -52,4 +51,10 @@
 <fullyQualifiedTypeName name="org.openqa.selenium.chrome.ChromeOptions"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.By"/>
+<fullyQualifiedTypeName name="org.omg.CORBA.PUBLIC_MEMBER"/>
+<fullyQualifiedTypeName name="org.apache.commons.logging.Log"/>
+<fullyQualifiedTypeName name="touchouwang.costom"/>
+<fullyQualifiedTypeName name="touchouwang.setup"/>
+<fullyQualifiedTypeName name="touchouwang.teardown"/>
+<fullyQualifiedTypeName name="javax.print.attribute.standard.MediaName"/>
 </qualifiedTypeNameHistroy>
