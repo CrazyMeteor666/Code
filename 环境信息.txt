@@ -4,6 +4,8 @@
 投筹测试环境数据库：10.10.16.227:3306          root/root_123456
 基础平台数据库： 10.10.16.169:3306   root/root123
 
+正式环境数据库：touchouwangwan.mysql.rds.aliyuncs.com:3306          zhongchouor/Qaz1wsx456852
+
 测试环境1
 网站：test.touchouwang.net
 服务器目录：/data/test_env/devlepe/
