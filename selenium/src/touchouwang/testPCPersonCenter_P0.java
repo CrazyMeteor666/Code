@@ -75,10 +75,9 @@ public class testPCPersonCenter_P0 {
 			}
 		}
 
-
 		//case2：验证登录正确性
 		log.write("case2：验证登录正确性\r\n");
-		if (driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[1]/div[1]/text()")).getText().equals("13911111111")==true) {
+		if (driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[1]/div[1]")).getText().equals("18025450956")==true) {
 			log.write(time.format(new Date())+"   个人中心登录帐号正确\r\n");
 		}else{
 			log.write("报错：个人中心登录帐号错误\r\n");
@@ -93,7 +92,7 @@ public class testPCPersonCenter_P0 {
 		}
 
 		//case4：可用余额、投资冻结资金、已投资金额、累计收益金额
-		log.write("case4：可用余额、投资冻结资金、已投资金额、累计收益金额");
+		log.write("case4：可用余额、投资冻结资金、已投资金额、累计收益金额\r\n");
 		if (driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[2]/div[1]/ul/li[1]/strong")).getText().equals("0.00")==true) {
 			log.write(time.format(new Date())+"   可用余额正确\r\n");
 		}else{
@@ -138,16 +137,14 @@ public class testPCPersonCenter_P0 {
 		}
 
 		//case6：我的投资项目图片鼠标悬停出现按钮
-		log.write("case6:我的投资项目图片鼠标悬停出现按钮");
+		log.write("case6:我的投资项目图片鼠标悬停出现按钮\r\n");
 		action.moveToElement(driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[2]/div[2]/div[1]/img"))).build().perform();
 		driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/button")).click();
 		if (IsElementPresent(By.xpath("/html/body/div[3]/div[2]/div[2]/div[2]/div[1]/div[2]"))==true) {
 			log.write(time.format(new Date())+"   点击查看进度按钮展开项目进度\r\n");
 		} else {
-			log.write("报错：点击查看进度按钮项目进度未展开");
+			log.write("报错：点击查看进度按钮项目进度未展开\r\n");
 		}
-
-
 		action.moveToElement(driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[2]/div[2]/div[1]/img"))).build().perform();
 		driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/a")).click();
 		Thread.sleep(3000);

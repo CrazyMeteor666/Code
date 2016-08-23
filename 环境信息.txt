@@ -1,12 +1,28 @@
-猎聘网  （新）小牛网络/fgkg080808
-前程无忧   （新）前海小牛 xnkj123 fgkg080808
-智联招聘   （新）v27229298/xnkj6666
-
 测试环境的服务器：10.10.16.227    root/Xiaoniu@2015   test/123456
 基础平台服务器：10.10.16.169   root/Xiaoniu@2015
 
 投筹测试环境数据库：10.10.16.227:3306          root/root_123456
 基础平台数据库： 10.10.16.169:3306   root/root123
+
+测试环境1
+网站：test.touchouwang.net
+服务器目录：/data/test_env/devlepe/
+
+管理端：http://10.10.16.227:8070   luoqiugui/luoqiugui
+服务器目录：/var/www/sys_admin/
+
+测试环境2：
+网站：10.10.16.227:1000
+服务器目录：/data/test_env/fzt/
+
+管理端：10.10.16.227:1010     luoqiugui/luoqiugui
+服务器目录：/var/www/fzy_sys_admin/
+
+钱罐子管理端：http://10.10.16.169:8280/  admin/xiewen
+
+领会管理端：http://120.76.101.179:6910/rest/page/login    touchou/123456
+
+
 
 复制数据表：
 create table tabA_bak as select * from tabA
@@ -14,15 +30,15 @@ create table tabA_bak as select * from tabA
 预发布地址：10.16.0.85 
 
 删除测试环境用户信息
-DELETE FROM uniuser.customer_source WHERE MEMBER_NO='ba5b9a01-4d23-48e2-aae5-f6198d91b0e7';
-DELETE FROM uniuser.login_log WHERE  MEMBER_NO='ba5b9a01-4d23-48e2-aae5-f6198d91b0e7';
-DELETE FROM uniuser.customer_device WHERE MEMBER_NO='ba5b9a01-4d23-48e2-aae5-f6198d91b0e7';
-DELETE FROM uniuser.customer_bind WHERE MEMBER_NO='ba5b9a01-4d23-48e2-aae5-f6198d91b0e7';
+DELETE FROM uniuser.customer_source WHERE MEMBER_NO='14542d5a-2201-42b7-9d06-ce8f7e943c1b';
+DELETE FROM uniuser.login_log WHERE  MEMBER_NO='14542d5a-2201-42b7-9d06-ce8f7e943c1b';
+DELETE FROM uniuser.customer_device WHERE MEMBER_NO='14542d5a-2201-42b7-9d06-ce8f7e943c1b';
+DELETE FROM uniuser.customer_bind WHERE MEMBER_NO='14542d5a-2201-42b7-9d06-ce8f7e943c1b';
 
-DELETE FROM uniuser.customer_info WHERE MOBILE='18911111111'; 
-DELETE FROM payment.t_partner_user WHERE user_phone_no='18911111111';
-DELETE FROM payment.t_payment WHERE buyer_mobile='18911111111';
-DELETE FROM payment.t_user_card WHERE user_phone_no='18911111111'; 
+DELETE FROM uniuser.customer_info WHERE MOBILE='15915440878'; 
+DELETE FROM payment.t_partner_user WHERE user_phone_no='15915440878';
+DELETE FROM payment.t_payment WHERE buyer_mobile='15915440878';
+DELETE FROM payment.t_user_card WHERE user_phone_no='15915440878'; 
 
 
 前端日志路径

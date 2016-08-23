@@ -1,0 +1,21 @@
+package touchouwang;
+
+import java.io.File;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver.Navigation;
+import org.openqa.selenium.WebDriver.Options;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class testMHomePage {
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "D:\\selenium\\chromedriver_win32\\chromedriver.exe");
+		ChromeOptions options=new ChromeOptions();
+		options.addExtensions(new File("D:\\selenium\\chromedriver_win32\\1.0.43_0.crx"));
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		Navigation navigation=driver.navigate();
+		navigation.to("http://test.touchouwang.net/");
+	}
+}
