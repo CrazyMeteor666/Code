@@ -14,5 +14,22 @@ public class testMHomePage {
 		driver.manage().window().maximize();
 		Navigation navigation=driver.navigate();
 		navigation.to("http://test.touchouwang.net/");
+
+		File file=new File("D:\\testlog.txt");
+		if (!file.exists()) {
+			try {
+				file.createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		FileWriter log=new FileWriter(file,true);
+		
+		SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		
+		log.write("------------------------------------------------------------------------------\r\n");
+		log.write("\r\n\r\n\r\n");
+		log.write("移动端首页\r\n");
 	}
 }

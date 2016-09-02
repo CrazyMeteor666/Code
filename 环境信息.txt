@@ -1,3 +1,5 @@
+vpn：45.76.99.97 账号lx密码lx888
+
 测试环境的服务器：10.10.16.227    root/Xiaoniu@2015   test/123456
 基础平台服务器：10.10.16.169   root/Xiaoniu@2015
 
@@ -32,15 +34,15 @@ create table tabA_bak as select * from tabA
 预发布地址：10.16.0.85 
 
 删除测试环境用户信息
-DELETE FROM uniuser.customer_source WHERE MEMBER_NO='14542d5a-2201-42b7-9d06-ce8f7e943c1b';
-DELETE FROM uniuser.login_log WHERE  MEMBER_NO='14542d5a-2201-42b7-9d06-ce8f7e943c1b';
-DELETE FROM uniuser.customer_device WHERE MEMBER_NO='14542d5a-2201-42b7-9d06-ce8f7e943c1b';
-DELETE FROM uniuser.customer_bind WHERE MEMBER_NO='14542d5a-2201-42b7-9d06-ce8f7e943c1b';
+DELETE FROM uniuser.customer_source WHERE MEMBER_NO='06b2d6ec-ef91-4fa1-8842-6518d62562bb';
+DELETE FROM uniuser.login_log WHERE  MEMBER_NO='06b2d6ec-ef91-4fa1-8842-6518d62562bb';
+DELETE FROM uniuser.customer_device WHERE MEMBER_NO='06b2d6ec-ef91-4fa1-8842-6518d62562bb';
+DELETE FROM uniuser.customer_bind WHERE MEMBER_NO='06b2d6ec-ef91-4fa1-8842-6518d62562bb';
 
-DELETE FROM uniuser.customer_info WHERE MOBILE='15915440878'; 
-DELETE FROM payment.t_partner_user WHERE user_phone_no='15915440878';
-DELETE FROM payment.t_payment WHERE buyer_mobile='15915440878';
-DELETE FROM payment.t_user_card WHERE user_phone_no='15915440878'; 
+DELETE FROM uniuser.customer_info WHERE MOBILE='13417322420'; 
+DELETE FROM payment.t_partner_user WHERE user_phone_no='13417322420';
+DELETE FROM payment.t_payment WHERE buyer_mobile='13417322420';
+DELETE FROM payment.t_user_card WHERE user_phone_no='13417322420'; 
 
 
 前端日志路径
@@ -129,3 +131,11 @@ http://test.geeoffice.com/oauth/reflash_wx_token?user=123456789
 
 线上环境日志：
 /data/logs/app/zc/debug
+
+修改投资时间：
+投筹：
+product_order   2
+
+基础平台：
+t_invest_order   3
+t_balance_record   3
