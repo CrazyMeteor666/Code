@@ -13,7 +13,7 @@ public class testMHomePage {
 		WebDriver driver=new ChromeDriver(options);
 		driver.manage().window().maximize();
 		Navigation navigation=driver.navigate();
-		navigation.to("http://test.touchouwang.net/");
+		navigation.to("https://www.touchouwang.net/");
 
 		File file=new File("D:\\testlog.txt");
 		if (!file.exists()) {
@@ -31,5 +31,8 @@ public class testMHomePage {
 		log.write("------------------------------------------------------------------------------\r\n");
 		log.write("\r\n\r\n\r\n");
 		log.write("移动端首页\r\n");
+
+		//case1：banner、列表图片加载
+		
 	}
 }

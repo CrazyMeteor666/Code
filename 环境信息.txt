@@ -27,6 +27,31 @@ vpn：45.76.99.97 账号lx密码lx888
 领会管理端：http://120.76.101.179:6910/rest/page/login    touchou/123456
 
 
+227重启：
+/usr/local/nginx   nginx
+/etc/httpd     apache
+redis-server /etc/redis_6380.conf
+redis-server /etc/redis_6381.conf
+/home/test/run/crowd/bin/all_restart.sh
+/home/test/run/statistic/bin/all_restart.sh
+[test@CENTOS227 ~/run/crowd/bin]$./ctrl.sh start msg_deliver2
+
+
+禅道安装：
+1、将安装包直接解压到/opt目录下，不要解压到别的目录再拷贝到/opt/，因为这样会导致文件的所有者和读写权限改变。
+可以使用命令： tar -zxvf  ZenTaoPMS.7.3.stable.zbox_32.tar.gz -C /opt
+2、执行/opt/zbox/zbox start 命令开启Apache和Mysql。
+     执行/opt/zbox/zbox stop 命令停止Apache和Mysql。
+     执行/opt/zbox/zbox restart 命令重启Apache和Mysql。
+    可以使用/opt/zbox/zbox -h命令来获取关于zbox命令的帮助
+    其中 -ap参数 可以修改Apache的端口，-mp参数 可以修改Mysql的端口（比如：/opt/zbox/zbox -ap 8080）
+3、浏览器访问 http://ip:端口 (默认帐号 admin，密码 123456)
+4、数据库的用户名：root，密码为空。数据库管理用的是adminer，但是为了安全，访问adminer的时候需要身份验证，需要运行/opt/zbox/auth/adduser.sh来添加用户(先 cd /opt/zbox/auth/ 然后执行 ./adduser.sh)。
+5、网页访问禅道，点击数据库管理有2层验证：
+1）弹窗验证是输入运行 addusers.sh添加的帐号和密码；
+2）网页直接显示登录界面：服务器：127.0.0.1:mysql端口  帐号 root  数据库填写zentao
+
+
 
 复制数据表：
 create table tabA_bak as select * from tabA
@@ -34,15 +59,15 @@ create table tabA_bak as select * from tabA
 预发布地址：10.16.0.85 
 
 删除测试环境用户信息
-DELETE FROM uniuser.customer_source WHERE MEMBER_NO='06b2d6ec-ef91-4fa1-8842-6518d62562bb';
-DELETE FROM uniuser.login_log WHERE  MEMBER_NO='06b2d6ec-ef91-4fa1-8842-6518d62562bb';
-DELETE FROM uniuser.customer_device WHERE MEMBER_NO='06b2d6ec-ef91-4fa1-8842-6518d62562bb';
-DELETE FROM uniuser.customer_bind WHERE MEMBER_NO='06b2d6ec-ef91-4fa1-8842-6518d62562bb';
+DELETE FROM uniuser.customer_source WHERE MEMBER_NO='8bd4445d-d4be-4c88-ac3a-a8f2d09993db';
+DELETE FROM uniuser.login_log WHERE  MEMBER_NO='8bd4445d-d4be-4c88-ac3a-a8f2d09993db';
+DELETE FROM uniuser.customer_device WHERE MEMBER_NO='8bd4445d-d4be-4c88-ac3a-a8f2d09993db';
+DELETE FROM uniuser.customer_bind WHERE MEMBER_NO='8bd4445d-d4be-4c88-ac3a-a8f2d09993db';
 
-DELETE FROM uniuser.customer_info WHERE MOBILE='13417322420'; 
-DELETE FROM payment.t_partner_user WHERE user_phone_no='13417322420';
-DELETE FROM payment.t_payment WHERE buyer_mobile='13417322420';
-DELETE FROM payment.t_user_card WHERE user_phone_no='13417322420'; 
+DELETE FROM uniuser.customer_info WHERE MOBILE='13911111191'; 
+DELETE FROM payment.t_partner_user WHERE user_phone_no='13911111191';
+DELETE FROM payment.t_payment WHERE buyer_mobile='13911111191';
+DELETE FROM payment.t_user_card WHERE user_phone_no='13911111191'; 
 
 
 前端日志路径
@@ -90,7 +115,7 @@ SELECT COUNT(*) FROM `crowd_test`.`product_order` WHERE user_id='e9cb082d-05ca-4
 
 
 预发布日志（跳板机）：
-/data/logs/httpd/www.touchouwang.net-access_log 
+  
 
 管理端trunk：
 sys_admin
@@ -139,3 +164,20 @@ product_order   2
 基础平台：
 t_invest_order   3
 t_balance_record   3
+
+丰富支付修改渠道：
+select * from t_payment_provider_bank_code where partner_id='10003'
+
+丰富支付测试卡：
+icbc	小白    身份证号：522705193010105154   卡号：4417127022522312	卡密码：262575	借记卡	50000    银行预留手机号自行填写
+ccb	淖奴    身份证号：650425199306229686   卡号：6200603117627477	卡密码：891067	借记卡	50000    银行预留手机号自行填写
+cmb	玩亮    身份证号：232328191702209442   卡号：6214834171510648   卡密码：558347	借记卡	50000    银行预留手机号自行填写
+boc	万哲宇	身份证号：63063119641007374X   卡号：6216380187233187	卡密码：676121	借记卡	50000    银行预留手机号自行填写
+
+
+
+单号重复错误：
+先看account-service的日志  查到单号
+根据这个单号去查t_balance_record
+select * from t_balance_record where trans_record_id = '2016000000305593' and partner_id = '10003'
+
