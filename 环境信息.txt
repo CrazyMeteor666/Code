@@ -1,10 +1,14 @@
 vpn：45.76.99.97 账号lx密码lx888
 
+10.16.15.227
+10.16.15.169
+root/tc#2016
+
 测试环境的服务器：10.10.16.227    root/Xiaoniu@2015   test/123456
 基础平台服务器：10.10.16.169   root/Xiaoniu@2015
 
 投筹测试环境数据库：10.10.16.227:3306          root/root_123456
-基础平台数据库： 10.10.16.169:3306   root/root123
+基础平台数据库：10.10.16.169:3306             root/root123
 
 正式环境数据库：touchouwangwan.mysql.rds.aliyuncs.com:3306          zhongchouor/Qaz1wsx456852
 
@@ -22,19 +26,35 @@ vpn：45.76.99.97 账号lx密码lx888
 管理端：10.10.16.227:1010     luoqiugui/luoqiugui
 服务器目录：/var/www/fzy_sys_admin/
 
-钱罐子管理端：http://10.10.16.169:8280/  admin/xiewen
+钱罐子管理端：http://10.10.16.169:8280/  admin/123456
 
 领会管理端：http://120.76.101.179:6910/rest/page/login    touchou/123456
 
 
 227重启：
-/usr/local/nginx   nginx
-/etc/httpd     apache
+重启脚本：/root/lingcong/all_start.sh
+
+命令
+service mysqld start
+/usr/local/nginx/sbin   ./nginx
+/etc/httpd     service httpd start
+/root/lingcong/activemq_test/bin/activemq start
 redis-server /etc/redis_6380.conf
 redis-server /etc/redis_6381.conf
+redis-server /etc/redis.conf
 /home/test/run/crowd/bin/all_restart.sh
 /home/test/run/statistic/bin/all_restart.sh
 [test@CENTOS227 ~/run/crowd/bin]$./ctrl.sh start msg_deliver2
+/opt/zbox/zbox start
+
+
+基础平台验证码过期：
+1.把redis6个节点7000-7005的进程全杀掉
+2.进入/data/cluster下，删除7000-7005文件夹中的部分文件，只保留redis.conf和dump.rdb文件即可
+3.依次启动7000-7005redistribute节点
+4.切换到/data/redis-3.0.1/src目录，执行以下命令
+./redis-trib.rb  create --replicas 1 10.16.15.169:7000 10.16.15.169:7001 10.16.15.169:7002 10.16.15.169:7003 10.16.15.169:7004 10.16.15.169:7005
+执行期间，会提示你输入yes，然后就可以了。
 
 
 禅道安装：
@@ -59,15 +79,18 @@ create table tabA_bak as select * from tabA
 预发布地址：10.16.0.85 
 
 删除测试环境用户信息
-DELETE FROM uniuser.customer_source WHERE MEMBER_NO='8bd4445d-d4be-4c88-ac3a-a8f2d09993db';
-DELETE FROM uniuser.login_log WHERE  MEMBER_NO='8bd4445d-d4be-4c88-ac3a-a8f2d09993db';
-DELETE FROM uniuser.customer_device WHERE MEMBER_NO='8bd4445d-d4be-4c88-ac3a-a8f2d09993db';
-DELETE FROM uniuser.customer_bind WHERE MEMBER_NO='8bd4445d-d4be-4c88-ac3a-a8f2d09993db';
+DELETE FROM uniuser.customer_source WHERE MEMBER_NO='bec4a520-6957-439a-acdb-17270aaad9ea';
+DELETE FROM uniuser.login_log WHERE  MEMBER_NO='bec4a520-6957-439a-acdb-17270aaad9ea';
+DELETE FROM uniuser.customer_device WHERE MEMBER_NO='bec4a520-6957-439a-acdb-17270aaad9ea';
+DELETE FROM uniuser.customer_bind WHERE MEMBER_NO='bec4a520-6957-439a-acdb-17270aaad9ea';
+DELETE FROM usernew.t_customer_bind WHERE MEMBER_NO='bec4a520-6957-439a-acdb-17270aaad9ea';
 
-DELETE FROM uniuser.customer_info WHERE MOBILE='13911111191'; 
-DELETE FROM payment.t_partner_user WHERE user_phone_no='13911111191';
-DELETE FROM payment.t_payment WHERE buyer_mobile='13911111191';
-DELETE FROM payment.t_user_card WHERE user_phone_no='13911111191'; 
+DELETE FROM uniuser.customer_info WHERE MOBILE='13366660002'; 
+DELETE FROM payment.t_partner_user WHERE user_phone_no='13366660002';
+DELETE FROM payment.t_payment WHERE buyer_mobile='13366660002';
+DELETE FROM payment.t_user_card WHERE user_phone_no='13366660002'; 
+DELETE FROM usernew.t_customer WHERE MOBILE='13366660002';
+DELETE FROM usernew.t_customer WHERE login_name='13366660002';
 
 
 前端日志路径
@@ -154,6 +177,9 @@ $config["openid_list"] = '{"ojYqbwQPxYNppiETCAeVaBh_BWa8":"o8FalxAf4zCuUK6x29Law
 吉办网刷新微信token：
 http://test.geeoffice.com/oauth/reflash_wx_token?user=123456789
 
+投筹网微信token：
+http://test.touchouwang.net/oauth/reflash_wx_token?user=123456789
+
 线上环境日志：
 /data/logs/app/zc/debug
 
@@ -181,3 +207,15 @@ boc	万哲宇	身份证号：63063119641007374X   卡号：6216380187233187	卡�
 根据这个单号去查t_balance_record
 select * from t_balance_record where trans_record_id = '2016000000305593' and partner_id = '10003'
 
+DELETE FROM `mid_activity_user` WHERE wx_openid='oGBRIxEFJ6aBTrqUDstXcUS1K4KA' OR award_recommend='oGBRIxEFJ6aBTrqUDstXcUS1K4KA';
+DELETE FROM `mid_play_record` WHERE wx_openid='oGBRIxEFJ6aBTrqUDstXcUS1K4KA' OR recommend='oGBRIxEFJ6aBTrqUDstXcUS1K4KA';
+DELETE FROM `activity_user_base` WHERE  wx_openid='oGBRIxEFJ6aBTrqUDstXcUS1K4KA' OR recommender='oGBRIxEFJ6aBTrqUDstXcUS1K4KA';
+
+
+理财师审核通过：
+修改financial_info表
+UPDATE user_info SET identity = 1, identity_time = NOW() WHERE user_id = '4478adbc-65d4-4c47-888d-b7172941b647'
+INSERT INTO reward_user(user_id, create_time) VALUES('4478adbc-65d4-4c47-888d-b7172941b647', NOW())
+
+手动调用接口：
+curl -s -d '{"header":{"cmd":225, "msg_id":99},"body":{"user_id":"cf9a3957-7cbc-41e1-a176-cb32347b6aa7","transfer_unit":1,"product_transfer_sale_id":"efe3cc0b-6378-11543865385"}}' "http://10.10.16.227:2016/crowd/service/product"
